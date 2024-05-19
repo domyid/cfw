@@ -1,4 +1,4 @@
-import wasm from './pkg/main.wasm';
+import wasm from '../pkg/main.wasm';
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));

@@ -14,12 +14,15 @@ func handleRequest(this js.Value, args []js.Value) interface{} {
 		// Tambahkan headers dan body jika diperlukan
 	}
 
-	response, err := js.Global().Get("fetch").Invoke(url, opts)
-	if err != nil {
-		return js.Null()
-	}
+	promise := js.Global().Get("fetch").Invoke(url, opts)
+	then := js.FuncOf(func(this js.Value, args []js.Value) interface{} {
+		response := args[0]
+		return response
+	})
+	defer then.Release()
 
-	return response
+	promise.Call("then", then)
+	return nil
 }
 
 func main() {

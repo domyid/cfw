@@ -7,11 +7,11 @@ command = "GOOS=js GOARCH=wasm go build -o ./pkg/main.wasm"
 
 [site]
 bucket = "./pkg"
-zone_id = "$ZONE_ID"
-routes = ["$DOMAIN_MATCH"]
 
 [env.production]
-workers_dev = true
+workers_dev = false
+zone_id = "$ZONE_ID"
+routes = ["$DOMAIN_MATCH"]
 
 [env.production.vars]
   GOOGLE_CLOUD_FUNCTION_URL = "$GOOGLE_CLOUD_FUNCTION_URL"

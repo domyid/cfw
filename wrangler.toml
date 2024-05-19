@@ -1,0 +1,16 @@
+name = "cloudflare-worker-go"
+type = "javascript"
+
+[build]
+command = "GOOS=js GOARCH=wasm go build -o main.wasm"
+upload_format = "modules"
+
+[site]
+bucket = "./pkg"
+entry-point = "lib"
+
+[env.production]
+workers_dev = true
+
+[env.production.vars]
+  GOOGLE_CLOUD_FUNCTION_URL = "$GOOGLE_CLOUD_FUNCTION_URL"

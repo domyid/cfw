@@ -1,0 +1,9 @@
+{
+    "name": "cloudflare-worker-go",
+    "version": "1.0.0",
+    "main": "index.js",
+    "dependencies": {
+      "@cloudflare/wrangler": "^2.0.0"
+    }
+  }
+  

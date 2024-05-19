@@ -1,16 +1,17 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/syumai/workers"
 )
 
-func handleRequest(req *http.Request) *http.Response {
-	// Your code here
-	return workers.NewResponse("Hello, World!", nil)
+func handleRequest(w http.ResponseWriter, req *http.Request) {
+	fmt.Fprintf(w, "Hello, Word!")
 }
 
 func main() {
-	workers.HandleRequest(handleRequest)
+	var handler http.HandlerFunc = handleRequest
+	workers.Serve(handler)
 }

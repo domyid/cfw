@@ -24,7 +24,7 @@ jobs:
         run: npm uninstall -g @cloudflare/wrangler && npm install -g wrangler
       - name: Build Go to WebAssembly
         run: |
-          GOOS=js GOARCH=wasm go build -o ./src/main.wasm
+          GOOS=js GOARCH=wasm go build -o ./pkg/main.wasm
           ls -l
           pwd
       - name: Publish to Cloudflare Workers

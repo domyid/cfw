@@ -28,4 +28,4 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           GOOGLE_CLOUD_FUNCTION_URL: ${{ secrets.GOOGLE_CLOUD_FUNCTION_URL }}
-        run: wrangler publish
+        run: wrangler deploy

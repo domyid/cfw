@@ -1,13 +1,14 @@
 name = "cloudflare-worker-go"
 type = "javascript"
+main = "src/index.js"
 
 [build]
 command = "GOOS=js GOARCH=wasm go build -o main.wasm"
 upload_format = "modules"
 
 [site]
+compatibility_date = "2024-05-19"
 bucket = "./pkg"
-entry-point = "src/index.js"
 
 [env.production]
 workers_dev = true

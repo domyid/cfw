@@ -8,5 +8,7 @@ async function handleRequest(request) {
   await wasm();
   const url = GOOGLE_CLOUD_FUNCTION_URL;
   const response = await window.handleRequest(request,url);
-  return response;
+  return new Response(await response.text(), {
+    headers: { "Content-Type": "application/json" }
+  });
 }
